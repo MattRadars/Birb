@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4r38yoo8qb3m"]
+
+[ext_resource type="Script" path="res://Characters/pipe.gd" id="1_tdgay"]
+[ext_resource type="Texture2D" uid="uid://d0wc582tu3e46" path="res://Assets/straight-chonk-log2.png" id="2_8kh16"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2m1e"]
+radius = 57.7602
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht8u1"]
+size = Vector2(119.943, 318.786)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kmdf8"]
+radius = 21.5139
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leahm"]
+size = Vector2(42.8596, 303.199)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(3, -9)
+scale = Vector2(1.32136, 1.07156)
+script = ExtResource("1_tdgay")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-1, -9.00003)
+scale = Vector2(3.37963, 4.75945)
+texture = ExtResource("2_8kh16")
+offset = Vector2(0, 80)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(6.81116, 144.649)
+scale = Vector2(1, 0.706897)
+shape = SubResource("CircleShape2D_b2m1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-0.954498, 405.518)
+scale = Vector2(1, 1.68965)
+shape = SubResource("RectangleShape2D_ht8u1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-2.15518, -9.48276)
+rotation = -3.14159
+scale = Vector2(3.37963, 4.75945)
+texture = ExtResource("2_8kh16")
+offset = Vector2(0, 80)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(6.05437, -159.58)
+scale = Vector2(2.84675, 1.70879)
+shape = SubResource("CircleShape2D_kmdf8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5.40176, -420.367)
+scale = Vector2(2.84675, 1.70879)
+shape = SubResource("RectangleShape2D_leahm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

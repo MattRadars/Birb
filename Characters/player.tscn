@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=3 uid="uid://cnn8goxcinm6c"]
+
+[ext_resource type="Script" path="res://Characters/player.gd" id="1_qba5w"]
+[ext_resource type="Texture2D" uid="uid://4ayhip7yf4ed" path="res://Characters/C4/Creeper1.png" id="2_l478h"]
+[ext_resource type="Texture2D" uid="uid://5sphveud5owj" path="res://Characters/Reddy/Pinky1.png" id="2_phrli"]
+[ext_resource type="Texture2D" uid="uid://bxi08gwhhgkh0" path="res://Characters/C4/Creeper2.png" id="3_4uxjk"]
+[ext_resource type="Texture2D" uid="uid://dxgpymfvpn6m8" path="res://Characters/Reddy/Pinky2.png" id="3_rwmdl"]
+[ext_resource type="Texture2D" uid="uid://b30mthqqs13v1" path="res://Characters/C4/Creeper3.png" id="4_ndh28"]
+[ext_resource type="Texture2D" uid="uid://2nfq851gc75b" path="res://Characters/Reddy/Pinky3.png" id="4_sg1cs"]
+[ext_resource type="Texture2D" uid="uid://cqgnohpy1hic2" path="res://Characters/Bluey/BlueBird1.png" id="5_gbp6c"]
+[ext_resource type="Texture2D" uid="uid://dot5vx5l5bv83" path="res://Characters/Bluey/BlueBird2.png" id="6_2y3x8"]
+[ext_resource type="Texture2D" uid="uid://b8a43l4nxle5g" path="res://Characters/Bluey/BlueBird3.png" id="7_714pt"]
+[ext_resource type="Texture2D" uid="uid://cvp1rv0qkfwvb" path="res://Characters/Sunny/Sunny1.png" id="8_m0ws3"]
+[ext_resource type="Texture2D" uid="uid://clroq330a0tyl" path="res://Characters/Sunny/Sunny2.png" id="9_fxusa"]
+[ext_resource type="Texture2D" uid="uid://c23ufchbekp67" path="res://Characters/Sunny/Sunny3.png" id="10_ho3ex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqiqg"]
+radius = 31.0644
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp8sd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gbp6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2y3x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_714pt")
+}],
+"loop": true,
+"name": &"Bluey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l478h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4uxjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ndh28")
+}],
+"loop": true,
+"name": &"C4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_phrli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rwmdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sg1cs")
+}],
+"loop": true,
+"name": &"Pinky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_m0ws3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fxusa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ho3ex")
+}],
+"loop": true,
+"name": &"Sunny",
+"speed": 5.0
+}]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7sxdc"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(-5, 0)
+rotation = 0.000587691
+slide_on_ceiling = false
+script = ExtResource("1_qba5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+position = Vector2(-4, -7)
+rotation = -3.14159
+scale = Vector2(1.35853, -0.940293)
+shape = SubResource("CircleShape2D_yqiqg")
+debug_color = Color(0.0431373, 0.580392, 0.796078, 0.501961)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.538574, -15.7463)
+scale = Vector2(0.663394, 0.549143)
+sprite_frames = SubResource("SpriteFrames_yp8sd")
+animation = &"Bluey"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7sxdc")
