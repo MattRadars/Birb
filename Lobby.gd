@@ -1,6 +1,10 @@
 extends Node2D
 
-@export var Address = "172.25.0.1"
+#kyle's
+#@export var Address = "172.25.0.1"
+
+#john's
+@export var Address = "192.168.1.103"
 @export var port = 35
 var peer
 var character_select
@@ -24,9 +28,9 @@ func _input(event):
 		get_tree().change_scene_to_file("res://MainMenu.tscn")
 
 
-func _on_enter_username_text_submitted(new_text):
-	GameManager.playername = $EnterUsername.text
-	get_tree().change_scene_to_file("res://CharacterSelection.tscn")
+#func _on_enter_username_text_submitted(_new_text):
+	#GameManager.playername = $EnterUsername.text
+	#get_tree().change_scene_to_file("res://CharacterSelection.tscn")
 	
 func _process(_delta):
 	pass
@@ -64,10 +68,12 @@ func SendPlayerInformation(id):
 				player += 1
 		GameManager.Players[id] = {
 			"id": id,
+			"username": "Player",
 			"character": "C4",
 			"selected": 0,
 			"player": player,
-			"dead": false
+			"ready": false,
+			"dead": false,
 		}
 		
 	if multiplayer.is_server():
@@ -86,7 +92,7 @@ func CharacterSelect():
 
 func peer_connected(id):
 	print("Player Connected" + str(id))
-	pass
+
 	
 func peer_disconnected(id):
 	print("Player Disconnected" + str(id))
@@ -104,3 +110,11 @@ func connected_to_server():
 func connection_failed():
 	print("Connection failed!")
 
+func _on_start_btn_temp_pressed():
+	$Button_sound.play()
+	await get_tree().create_timer(0.17).timeout
+	CharacterSelect.rpc()
+	
+@rpc("any_peer", "call_local")
+func update_username(id):
+	GameManager.Players[id].username = $EnterUsername.text

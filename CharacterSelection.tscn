@@ -212,7 +212,7 @@ resource_name = "popup"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Select Player:scale")
+tracks/0/path = NodePath("Start:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -370,11 +370,11 @@ offset_right = 1908.0
 offset_bottom = 1072.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_lvnxm")
 
-[node name="Select Player" type="Button" parent="."]
-offset_left = 1515.0
-offset_top = 892.0
-offset_right = 1815.0
-offset_bottom = 1042.0
+[node name="Start" type="Button" parent="."]
+offset_left = 1357.0
+offset_top = 822.0
+offset_right = 2.82015e+07
+offset_bottom = 1.34009e+07
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(150, 75)
 theme_override_styles/normal = SubResource("StyleBoxTexture_kps4j")
@@ -383,73 +383,41 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ufvht")
 theme_override_styles/focus = SubResource("StyleBoxTexture_mrnbj")
 
 [node name="P1Border" type="Sprite2D" parent="."]
-position = Vector2(239, 450)
+position = Vector2(241, 450)
 scale = Vector2(3.4, 3.4)
 texture = ExtResource("5_m5k47")
 
-[node name="P2Border" type="Sprite2D" parent="."]
-position = Vector2(711, 450)
-scale = Vector2(3.4, 3.4)
-texture = ExtResource("5_m5k47")
-
-[node name="P2Border2" type="Sprite2D" parent="."]
-position = Vector2(1187, 450)
-scale = Vector2(3.4, 3.4)
-texture = ExtResource("5_m5k47")
-
-[node name="P2Border3" type="Sprite2D" parent="."]
-position = Vector2(1655, 450)
-scale = Vector2(3.4, 3.4)
-texture = ExtResource("5_m5k47")
-
-[node name="Left" type="Button" parent="."]
-offset_left = 178.0
-offset_top = 180.0
-offset_right = 298.0
-offset_bottom = 270.0
+[node name="Left" type="Button" parent="P1Border"]
+offset_left = -17.9412
+offset_top = -74.4118
+offset_right = 102.059
+offset_bottom = 15.5882
+scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b2ab5")
 
-[node name="Right" type="Button" parent="."]
-offset_left = 178.0
-offset_top = 486.0
-offset_right = 298.0
-offset_bottom = 576.0
+[node name="Right" type="Button" parent="P1Border"]
+offset_left = -17.9412
+offset_top = 15.5881
+offset_right = 102.059
+offset_bottom = 105.588
+scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nv4lh")
 
-[node name="PlayerSelect" type="AnimatedSprite2D" parent="."]
-position = Vector2(240, 343)
-scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_wgyld")
-animation = &"Player3"
-
-[node name="Name" type="Label" parent="PlayerSelect"]
+[node name="Player Name" type="Label" parent="P1Border"]
 anchors_preset = -1
 anchor_right = 0.825
 anchor_bottom = 0.372
-offset_left = -90.3772
-offset_top = 49.0866
-offset_right = -19.9772
-offset_bottom = 68.4706
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("20_npvim")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Player Name" type="Label" parent="PlayerSelect"]
-anchors_preset = -1
-anchor_right = 0.825
-anchor_bottom = 0.372
-offset_left = -101.667
-offset_top = -170.0
-offset_right = -5.26666
-offset_bottom = -163.616
+offset_left = -44.5882
+offset_top = -107.235
+offset_right = 28.8118
+offset_bottom = -151.467
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("20_npvim")
 theme_override_font_sizes/font_size = 40
@@ -458,11 +426,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ConfirmBTN" type="Button" parent="."]
-offset_left = 165.0
-offset_top = 615.0
-offset_right = 315.0
-offset_bottom = 765.0
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P1Border"]
+position = Vector2(0.588234, -26.4706)
+scale = Vector2(0.441176, 0.441176)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player3"
+
+[node name="Name" type="Label" parent="P1Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -89.0439
+offset_top = 49.0866
+offset_right = -18.6439
+offset_bottom = 68.4706
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmBTN" type="Button" parent="P1Border"]
+offset_left = -22.3529
+offset_top = 56.1765
+offset_right = 127.647
+offset_bottom = 206.177
+scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
@@ -517,7 +506,246 @@ animation = &"clicked"
 autoplay = "idle"
 frame_progress = 0.808026
 
-[connection signal="pressed" from="Select Player" to="." method="_on_select_player_pressed"]
-[connection signal="pressed" from="Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Right" to="." method="_on_right_pressed"]
-[connection signal="toggled" from="ConfirmBTN" to="." method="_on_button_toggled"]
+[node name="P2Border" type="Sprite2D" parent="."]
+position = Vector2(703, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P2Border"]
+offset_left = -17.9412
+offset_top = -74.4118
+offset_right = 102.059
+offset_bottom = 15.5882
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b2ab5")
+
+[node name="Right" type="Button" parent="P2Border"]
+offset_left = -17.9412
+offset_top = 15.5881
+offset_right = 102.059
+offset_bottom = 105.588
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nv4lh")
+
+[node name="Player Name" type="Label" parent="P2Border"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -44.5882
+offset_top = -107.235
+offset_right = 28.8118
+offset_bottom = -151.467
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 40
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P2Border"]
+position = Vector2(0.588234, -26.4706)
+scale = Vector2(0.441176, 0.441176)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player3"
+
+[node name="Name" type="Label" parent="P2Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -89.0439
+offset_top = 49.0866
+offset_right = -18.6439
+offset_bottom = 68.4706
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmBTN" type="Button" parent="P2Border"]
+offset_left = -22.3529
+offset_top = 56.1765
+offset_right = 127.647
+offset_bottom = 206.177
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
+toggle_mode = true
+
+[node name="P3Border" type="Sprite2D" parent="."]
+position = Vector2(1183, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P3Border"]
+offset_left = -17.9412
+offset_top = -74.4118
+offset_right = 102.059
+offset_bottom = 15.5882
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b2ab5")
+
+[node name="Right" type="Button" parent="P3Border"]
+offset_left = -17.9412
+offset_top = 15.5881
+offset_right = 102.059
+offset_bottom = 105.588
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nv4lh")
+
+[node name="Player Name" type="Label" parent="P3Border"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -44.5882
+offset_top = -107.235
+offset_right = 28.8118
+offset_bottom = -151.467
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 40
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P3Border"]
+position = Vector2(0.588234, -26.4706)
+scale = Vector2(0.441176, 0.441176)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player3"
+
+[node name="Name" type="Label" parent="P3Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -89.0439
+offset_top = 49.0866
+offset_right = -18.6439
+offset_bottom = 68.4706
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmBTN" type="Button" parent="P3Border"]
+offset_left = -22.3529
+offset_top = 56.1765
+offset_right = 127.647
+offset_bottom = 206.177
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
+toggle_mode = true
+
+[node name="P4Border" type="Sprite2D" parent="."]
+position = Vector2(1656, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P4Border"]
+offset_left = -17.9412
+offset_top = -74.4118
+offset_right = 102.059
+offset_bottom = 15.5882
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b2ab5")
+
+[node name="Right" type="Button" parent="P4Border"]
+offset_left = -17.9412
+offset_top = 15.5881
+offset_right = 102.059
+offset_bottom = 105.588
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nv4lh")
+
+[node name="Player Name" type="Label" parent="P4Border"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -44.5882
+offset_top = -107.235
+offset_right = 28.8118
+offset_bottom = -151.467
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 40
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P4Border"]
+position = Vector2(0.588234, -26.4706)
+scale = Vector2(0.441176, 0.441176)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player3"
+
+[node name="Name" type="Label" parent="P4Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -89.0439
+offset_top = 49.0866
+offset_right = -18.6439
+offset_bottom = 68.4706
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConfirmBTN" type="Button" parent="P4Border"]
+offset_left = -22.3529
+offset_top = 56.1765
+offset_right = 127.647
+offset_bottom = 206.177
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
+toggle_mode = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+
+[connection signal="pressed" from="Start" to="." method="_on_select_player_pressed"]
+[connection signal="pressed" from="P1Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P1Border/Right" to="." method="_on_right_pressed"]
+[connection signal="toggled" from="P1Border/ConfirmBTN" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="P2Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P2Border/Right" to="." method="_on_right_pressed"]
+[connection signal="toggled" from="P2Border/ConfirmBTN" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="P3Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P3Border/Right" to="." method="_on_right_pressed"]
+[connection signal="toggled" from="P3Border/ConfirmBTN" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="P4Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P4Border/Right" to="." method="_on_right_pressed"]
+[connection signal="toggled" from="P4Border/ConfirmBTN" to="." method="_on_button_toggled"]

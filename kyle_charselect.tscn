@@ -275,8 +275,6 @@ offset_right = 944.0
 offset_bottom = 576.0
 theme_override_font_sizes/font_size = 100
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-
 [node name="Choose your Birb" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_28isn")
 autoplay = true
@@ -497,6 +495,8 @@ scale = Vector2(4.67708, 4.16667)
 sprite_frames = SubResource("SpriteFrames_yr8pj")
 animation = &"clicked"
 autoplay = "idle"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 
 [connection signal="pressed" from="Select" to="." method="_on_select_player_pressed"]
 [connection signal="pressed" from="P1Border/Left" to="." method="_on_left_pressed"]

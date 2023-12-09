@@ -58,18 +58,18 @@ offset_bottom = 1098.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4vn4i")
 
 [node name="Border" type="Sprite2D" parent="."]
-position = Vector2(965, 368)
-scale = Vector2(1.71875, 1.30469)
+position = Vector2(959, 364)
+scale = Vector2(1.40234, 1.30469)
 texture = ExtResource("3_lp0wi")
 
 [node name="EnterUsername" type="LineEdit" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 595.0
-offset_top = 312.0
-offset_right = 1153.0
-offset_bottom = 421.0
+offset_left = 677.0
+offset_top = 310.0
+offset_right = 1235.0
+offset_bottom = 419.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
@@ -99,9 +99,9 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_lrtgi")
 theme_override_styles/focus = SubResource("StyleBoxTexture_c52m0")
 
 [node name="JoinBTN" type="Button" parent="."]
-offset_left = 833.0
+offset_left = 834.0
 offset_top = 644.0
-offset_right = 1087.0
+offset_right = 1088.0
 offset_bottom = 771.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_d63bf")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gnwf6")
@@ -114,6 +114,18 @@ position = Vector2(1228, 1162)
 stream = ExtResource("7_nkctj")
 volume_db = 5.0
 
+[node name="StartBTN_temp" type="Button" parent="."]
+offset_left = 836.0
+offset_top = 855.0
+offset_right = 1090.0
+offset_bottom = 982.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_d63bf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gnwf6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vvnr7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oshcc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_k2r2u")
+
 [connection signal="text_submitted" from="EnterUsername" to="." method="_on_enter_username_text_submitted"]
 [connection signal="pressed" from="HostBTN" to="." method="_on_host_btn_pressed"]
 [connection signal="pressed" from="JoinBTN" to="." method="_on_join_btn_pressed"]
+[connection signal="pressed" from="StartBTN_temp" to="." method="_on_start_btn_temp_pressed"]
