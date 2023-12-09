@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://birb_game.gd" id="1_keg2c"]
 [ext_resource type="PackedScene" uid="uid://b4r38yoo8qb3m" path="res://Characters/pipe_scene.tscn" id="2_k7ot3"]
 [ext_resource type="PackedScene" uid="uid://cnn8goxcinm6c" path="res://Characters/player.tscn" id="3_p6pnd"]
-[ext_resource type="Texture2D" uid="uid://bcr1pldwpup2o" path="res://Bg/forest-1.png" id="3_v8t2n"]
+[ext_resource type="Texture2D" uid="uid://dxw7m1ldyarih" path="res://Bg/forest-1.png" id="3_v8t2n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_510li"]
 texture = ExtResource("3_v8t2n")
