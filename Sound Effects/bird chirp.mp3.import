@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbbmu3vvqnbsm"
+path="res://.godot/imported/bird chirp.mp3-f7ee98a590f439826affdb3edf2d5e7a.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/bird chirp.mp3"
+dest_files=["res://.godot/imported/bird chirp.mp3-f7ee98a590f439826affdb3edf2d5e7a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtos22puv0bkp"
+path="res://.godot/imported/Crash Sound Effect.mp3-d00d0f34acfd6d86f7aa0912ca2c0665.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Crash Sound Effect.mp3"
+dest_files=["res://.godot/imported/Crash Sound Effect.mp3-d00d0f34acfd6d86f7aa0912ca2c0665.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
