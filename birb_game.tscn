@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy66ry27ahr7y"]
+
+[ext_resource type="Script" path="res://birb_game.gd" id="1_keg2c"]
+[ext_resource type="PackedScene" uid="uid://b4r38yoo8qb3m" path="res://Characters/pipe_scene.tscn" id="2_k7ot3"]
+[ext_resource type="PackedScene" uid="uid://cnn8goxcinm6c" path="res://Characters/player.tscn" id="3_p6pnd"]
+[ext_resource type="Texture2D" uid="uid://bcr1pldwpup2o" path="res://Bg/forest-1.png" id="3_v8t2n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_510li"]
+texture = ExtResource("3_v8t2n")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vilem"]
+size = Vector2(1927, 30)
+
+[node name="birb_game" type="Node2D"]
+position = Vector2(-6, -6)
+script = ExtResource("1_keg2c")
+pipe_scene = ExtResource("2_k7ot3")
+player_scene = ExtResource("3_p6pnd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1926.0
+offset_bottom = 1085.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_510li")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 779.0
+offset_top = -2.0
+offset_right = 1206.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 100
+text = "SCORE: 0"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(968.5, 1096)
+collision_layer = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vilem")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(967, -3)
+collision_layer = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_vilem")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,119 @@
+[gd_scene load_steps=22 format=3 uid="uid://cja073oiqsnt3"]
+
+[ext_resource type="Script" path="res://Lobby.gd" id="1_4b23h"]
+[ext_resource type="Texture2D" uid="uid://dcp21bm6ilobt" path="res://Bg/mountain-1.png" id="1_upkwl"]
+[ext_resource type="Texture2D" uid="uid://cqhv03u5aokhf" path="res://Frames/wooden enter name frame.png" id="3_lp0wi"]
+[ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="3_udfgj"]
+[ext_resource type="Texture2D" uid="uid://bvimotrawt4k5" path="res://Buttons/host-button.png" id="5_8rl1b"]
+[ext_resource type="Texture2D" uid="uid://dcq4oruykf0gc" path="res://Buttons/join-button.png" id="6_aksh4"]
+[ext_resource type="AudioStream" uid="uid://cx677hukkr0gn" path="res://Sound Effects/button_pressed.mp3" id="7_nkctj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vn4i"]
+texture = ExtResource("1_upkwl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5kqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdv1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sqjw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itgcy"]
+texture = ExtResource("5_8rl1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uk63i"]
+texture = ExtResource("5_8rl1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07dpo"]
+texture = ExtResource("5_8rl1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrtgi"]
+texture = ExtResource("5_8rl1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c52m0"]
+texture = ExtResource("5_8rl1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d63bf"]
+texture = ExtResource("6_aksh4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gnwf6"]
+texture = ExtResource("6_aksh4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvnr7"]
+texture = ExtResource("6_aksh4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oshcc"]
+texture = ExtResource("6_aksh4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2r2u"]
+texture = ExtResource("6_aksh4")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4b23h")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 37.0
+offset_top = 18.0
+offset_right = 1957.0
+offset_bottom = 1098.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4vn4i")
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(965, 368)
+scale = Vector2(1.71875, 1.30469)
+texture = ExtResource("3_lp0wi")
+
+[node name="EnterUsername" type="LineEdit" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 595.0
+offset_top = 312.0
+offset_right = 1153.0
+offset_bottom = 421.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_udfgj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_m5kqp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xdv1c")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_7sqjw")
+placeholder_text = "Enter username...."
+
+[node name="HostBTN" type="Button" parent="."]
+offset_left = 834.0
+offset_top = 499.0
+offset_right = 1088.0
+offset_bottom = 623.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_itgcy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uk63i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07dpo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lrtgi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_c52m0")
+
+[node name="JoinBTN" type="Button" parent="."]
+offset_left = 833.0
+offset_top = 644.0
+offset_right = 1087.0
+offset_bottom = 771.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_d63bf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gnwf6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vvnr7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oshcc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_k2r2u")
+
+[node name="Button_sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1228, 1162)
+stream = ExtResource("7_nkctj")
+volume_db = 5.0
+
+[connection signal="text_submitted" from="EnterUsername" to="." method="_on_enter_username_text_submitted"]
+[connection signal="pressed" from="HostBTN" to="." method="_on_host_btn_pressed"]
+[connection signal="pressed" from="JoinBTN" to="." method="_on_join_btn_pressed"]

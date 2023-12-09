@@ -1,0 +1,509 @@
+[gd_scene load_steps=57 format=3 uid="uid://b2lpfswsb8ao8"]
+
+[ext_resource type="Script" path="res://CharacterSelect.gd" id="1_njh8l"]
+[ext_resource type="Texture2D" uid="uid://dxw7m1ldyarih" path="res://Bg/forest-1.png" id="2_uj2xc"]
+[ext_resource type="Texture2D" uid="uid://dncbg58it0wtu" path="res://Buttons/PlayButton1.png" id="3_58kxw"]
+[ext_resource type="Texture2D" uid="uid://d3k2rlc8aidla" path="res://Buttons/PlayButton2.png" id="4_5dyho"]
+[ext_resource type="AudioStream" uid="uid://1s25724c8ect" path="res://Sound Effects/choose.mp3" id="5_28isn"]
+[ext_resource type="Texture2D" uid="uid://cqf6j1sswd7wh" path="res://Frames/border1.png" id="5_m5k47"]
+[ext_resource type="Texture2D" uid="uid://uygsk45ywb50" path="res://Buttons/ArrowButton1.png" id="6_aim8v"]
+[ext_resource type="AudioStream" uid="uid://dljp6i7t7omoe" path="res://Sound Effects/players_ready.mp3" id="6_eehu4"]
+[ext_resource type="AudioStream" uid="uid://dfc1e3h00520k" path="res://Sound Effects/SelectionMusic.mp3" id="7_83a18"]
+[ext_resource type="Texture2D" uid="uid://b8sjkrojti7yy" path="res://Buttons/ArrowButton2.png" id="7_s5gw7"]
+[ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="8_24qir"]
+[ext_resource type="Texture2D" uid="uid://4ayhip7yf4ed" path="res://Characters/C4/Creeper1.png" id="8_yk2do"]
+[ext_resource type="Texture2D" uid="uid://bxi08gwhhgkh0" path="res://Characters/C4/Creeper2.png" id="9_2nvyl"]
+[ext_resource type="Texture2D" uid="uid://b30mthqqs13v1" path="res://Characters/C4/Creeper3.png" id="10_yvjaj"]
+[ext_resource type="Texture2D" uid="uid://cqgnohpy1hic2" path="res://Characters/Bluey/BlueBird1.png" id="11_3xpr2"]
+[ext_resource type="Texture2D" uid="uid://dot5vx5l5bv83" path="res://Characters/Bluey/BlueBird2.png" id="12_1uk4t"]
+[ext_resource type="Texture2D" uid="uid://b8a43l4nxle5g" path="res://Characters/Bluey/BlueBird3.png" id="13_kndwc"]
+[ext_resource type="Texture2D" uid="uid://cvp1rv0qkfwvb" path="res://Characters/Sunny/Sunny1.png" id="14_4lrpi"]
+[ext_resource type="Texture2D" uid="uid://clroq330a0tyl" path="res://Characters/Sunny/Sunny2.png" id="15_j4ioy"]
+[ext_resource type="Texture2D" uid="uid://c23ufchbekp67" path="res://Characters/Sunny/Sunny3.png" id="16_rn2nm"]
+[ext_resource type="Texture2D" uid="uid://5sphveud5owj" path="res://Characters/Reddy/Pinky1.png" id="17_x7w1b"]
+[ext_resource type="Texture2D" uid="uid://dxgpymfvpn6m8" path="res://Characters/Reddy/Pinky2.png" id="18_8q5sd"]
+[ext_resource type="Texture2D" uid="uid://2nfq851gc75b" path="res://Characters/Reddy/Pinky3.png" id="19_h3lw4"]
+[ext_resource type="Texture2D" uid="uid://dclolnpkqfntx" path="res://Frames/twigged-chonk-log.png" id="24_h4k6a"]
+[ext_resource type="Texture2D" uid="uid://tdxqb5p48c02" path="res://Characters/ToxicFrogGreenBlue_Explosion.png" id="25_34ust"]
+[ext_resource type="Texture2D" uid="uid://c1iubu13rrtvh" path="res://Characters/ToxicFrogGreenBlue_Idle.png" id="26_4nr3l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lvnxm"]
+texture = ExtResource("2_uj2xc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kps4j"]
+texture = ExtResource("3_58kxw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngndd"]
+texture = ExtResource("4_5dyho")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufvht"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uemaj"]
+texture = ExtResource("6_aim8v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7sxm3"]
+texture = ExtResource("6_aim8v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ge1x"]
+texture = ExtResource("6_aim8v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1grbv"]
+texture = ExtResource("7_s5gw7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iouji"]
+texture = ExtResource("7_s5gw7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dov84"]
+texture = ExtResource("7_s5gw7")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgyld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yk2do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2nvyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yvjaj")
+}],
+"loop": true,
+"name": &"Player0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3xpr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1uk4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kndwc")
+}],
+"loop": true,
+"name": &"Player1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_4lrpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_j4ioy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rn2nm")
+}],
+"loop": true,
+"name": &"Player2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_x7w1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8q5sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_h3lw4")
+}],
+"loop": true,
+"name": &"Player3",
+"speed": 5.0
+}]
+
+[sub_resource type="SystemFont" id="SystemFont_esgh2"]
+subpixel_positioning = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpstu"]
+atlas = ExtResource("25_34ust")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k864"]
+atlas = ExtResource("25_34ust")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yit3"]
+atlas = ExtResource("25_34ust")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n38v"]
+atlas = ExtResource("25_34ust")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63j7g"]
+atlas = ExtResource("25_34ust")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b2u0"]
+atlas = ExtResource("25_34ust")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75ups"]
+atlas = ExtResource("25_34ust")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gy81"]
+atlas = ExtResource("25_34ust")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3f48"]
+atlas = ExtResource("25_34ust")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2lte"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q62b"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sitp"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28qqk"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef700"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci4fs"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1pob"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bufag"]
+atlas = ExtResource("26_4nr3l")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yr8pj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpstu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k864")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yit3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n38v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63j7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b2u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75ups")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gy81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3f48")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2lte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q62b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sitp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28qqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef700")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci4fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1pob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bufag")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="CharacterSelect" type="Node2D"]
+position = Vector2(22, 8)
+script = ExtResource("1_njh8l")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 1908.0
+offset_bottom = 1072.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lvnxm")
+
+[node name="Select" type="Button" parent="."]
+offset_left = 1577.0
+offset_top = 886.0
+offset_right = 1816.0
+offset_bottom = 1037.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_kps4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ngndd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ufvht")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 944.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 100
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+
+[node name="Choose your Birb" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_28isn")
+autoplay = true
+
+[node name="PlayersReady" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eehu4")
+
+[node name="CharacterSelectMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_83a18")
+volume_db = -10.0
+autoplay = true
+
+[node name="Announcement" type="Label" parent="."]
+offset_left = 424.0
+offset_top = 914.0
+offset_right = 1477.0
+offset_bottom = 1065.0
+theme_override_fonts/font = ExtResource("8_24qir")
+theme_override_font_sizes/font_size = 80
+text = "0/1 Players are Ready!"
+horizontal_alignment = 1
+
+[node name="P1Border" type="Sprite2D" parent="."]
+position = Vector2(239, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P1Border"]
+offset_left = -24.9537
+offset_top = -99.0234
+offset_right = 248.046
+offset_bottom = 131.977
+scale = Vector2(0.17104, 0.17104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="P1Border"]
+offset_left = -26.749
+offset_top = 41.882
+offset_right = 267.251
+offset_bottom = 259.882
+scale = Vector2(0.179261, 0.179261)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P1Border"]
+position = Vector2(0.538574, -15.7463)
+scale = Vector2(0.663394, 0.549143)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player0"
+
+[node name="Name" type="Label" parent="P1Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -8.1184
+offset_top = 47.5936
+offset_right = 62.2816
+offset_bottom = 66.9776
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_esgh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="P2Border" type="Sprite2D" parent="."]
+position = Vector2(711, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P2Border"]
+offset_left = -24.9537
+offset_top = -99.0234
+offset_right = 248.046
+offset_bottom = 131.977
+scale = Vector2(0.17104, 0.17104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="P2Border"]
+offset_left = -26.749
+offset_top = 41.882
+offset_right = 267.251
+offset_bottom = 259.882
+scale = Vector2(0.179261, 0.179261)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P2Border"]
+position = Vector2(0.538574, -15.7463)
+scale = Vector2(0.663394, 0.549143)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player0"
+
+[node name="Name" type="Label" parent="P2Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -8.1184
+offset_top = 47.5936
+offset_right = 62.2816
+offset_bottom = 66.9776
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_esgh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="P3Border" type="Sprite2D" parent="."]
+position = Vector2(1187, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P3Border"]
+offset_left = -24.9537
+offset_top = -99.0234
+offset_right = 248.046
+offset_bottom = 131.977
+scale = Vector2(0.17104, 0.17104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="P3Border"]
+offset_left = -26.749
+offset_top = 41.882
+offset_right = 267.251
+offset_bottom = 259.882
+scale = Vector2(0.179261, 0.179261)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P3Border"]
+position = Vector2(0.538574, -15.7463)
+scale = Vector2(0.663394, 0.549143)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player0"
+
+[node name="Name" type="Label" parent="P3Border/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -8.1184
+offset_top = 47.5936
+offset_right = 62.2816
+offset_bottom = 66.9776
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_esgh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="P2Border4" type="Sprite2D" parent="."]
+position = Vector2(1655, 450)
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("5_m5k47")
+
+[node name="Left" type="Button" parent="P2Border4"]
+offset_left = -24.9537
+offset_top = -99.0234
+offset_right = 248.046
+offset_bottom = 131.977
+scale = Vector2(0.17104, 0.17104)
+theme_override_styles/normal = SubResource("StyleBoxTexture_uemaj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7sxm3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ge1x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="Button" parent="P2Border4"]
+offset_left = -26.749
+offset_top = 41.882
+offset_right = 267.251
+offset_bottom = 259.882
+scale = Vector2(0.179261, 0.179261)
+theme_override_styles/normal = SubResource("StyleBoxTexture_1grbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iouji")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dov84")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerSelect" type="AnimatedSprite2D" parent="P2Border4"]
+position = Vector2(0.538574, -15.7463)
+scale = Vector2(0.663394, 0.549143)
+sprite_frames = SubResource("SpriteFrames_wgyld")
+animation = &"Player0"
+
+[node name="Name" type="Label" parent="P2Border4/PlayerSelect"]
+anchors_preset = -1
+anchor_right = 0.825
+anchor_bottom = 0.372
+offset_left = -8.1184
+offset_top = 47.5936
+offset_right = 62.2816
+offset_bottom = 66.9776
+theme_override_colors/font_color = Color(0.984314, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_esgh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Log" type="Sprite2D" parent="."]
+position = Vector2(226, 1039)
+scale = Vector2(2.92, 2.785)
+texture = ExtResource("24_h4k6a")
+
+[node name="Frog" type="AnimatedSprite2D" parent="."]
+position = Vector2(246, 958)
+scale = Vector2(4.67708, 4.16667)
+sprite_frames = SubResource("SpriteFrames_yr8pj")
+animation = &"clicked"
+autoplay = "idle"
+
+[connection signal="pressed" from="Select" to="." method="_on_select_player_pressed"]
+[connection signal="pressed" from="P1Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P1Border/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="P2Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P2Border/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="P3Border/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P3Border/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="P2Border4/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="P2Border4/Right" to="." method="_on_right_pressed"]

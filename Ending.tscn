@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqu7b2rhtvld5"]
+
+[ext_resource type="Script" path="res://Ending.gd" id="1_eiqq4"]
+[ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="2_gma12"]
+[ext_resource type="Texture2D" uid="uid://cof7ep1ttn6xm" path="res://Bg/400976233_364161552789507_3366915198403498066_n.png" id="2_sx6i7"]
+[ext_resource type="AudioStream" uid="uid://bkx1h7id61djd" path="res://Sound Effects/Win.mp3" id="2_xl8yy"]
+[ext_resource type="Texture2D" uid="uid://bfwvah5ws2yc3" path="res://Bg/log-throne.png" id="3_2030y"]
+[ext_resource type="Texture2D" uid="uid://pi7oh65a8144" path="res://Bg/385520771_1562099854586013_6769846476470502842_n.png" id="4_hilye"]
+[ext_resource type="Texture2D" uid="uid://4ayhip7yf4ed" path="res://Characters/C4/Creeper1.png" id="7_80o3k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ydc0"]
+texture = ExtResource("2_sx6i7")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klyks"]
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_eiqq4")
+
+[node name="BG" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4ydc0")
+
+[node name="Winner" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_klyks")
+
+[node name="Crown" type="AnimatedSprite2D" parent="."]
+
+[node name="Throne" type="Sprite2D" parent="."]
+position = Vector2(960, 671)
+scale = Vector2(3.86719, 4.27344)
+texture = ExtResource("3_2030y")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(988.5, 208.5)
+scale = Vector2(1.762, 1.70417)
+texture = ExtResource("4_hilye")
+
+[node name="PlayAgain" type="Label" parent="."]
+offset_left = 581.0
+offset_top = 913.0
+offset_right = 1374.0
+offset_bottom = 1015.0
+theme_override_fonts/font = ExtResource("2_gma12")
+theme_override_font_sizes/font_size = 50
+text = "Press 'Spacebar' to Play again."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 971.0
+offset_right = 1385.0
+offset_bottom = 1073.0
+theme_override_fonts/font = ExtResource("2_gma12")
+theme_override_font_sizes/font_size = 50
+text = "Press 'X' to go back to Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+offset_left = 784.0
+offset_top = 225.0
+offset_right = 1119.0
+offset_bottom = 343.0
+theme_override_colors/font_color = Color(0, 0.454902, 0, 1)
+theme_override_fonts/font = ExtResource("2_gma12")
+theme_override_font_sizes/font_size = 100
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xl8yy")
+autoplay = true
+
+[node name="temp" type="Sprite2D" parent="."]
+position = Vector2(949, 558)
+scale = Vector2(1.58594, 1.5625)
+texture = ExtResource("7_80o3k")

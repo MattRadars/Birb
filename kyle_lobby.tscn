@@ -1,0 +1,120 @@
+[gd_scene load_steps=23 format=3 uid="uid://cag60jjc8e73e"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_qtf2m"]
+[ext_resource type="Texture2D" uid="uid://cx3koxcls5tyj" path="res://Bg/4fb36680cc51add7c9e4b18281d17df8.png" id="1_terv2"]
+[ext_resource type="Texture2D" uid="uid://dncbg58it0wtu" path="res://Buttons/PlayButton1.png" id="2_8xad6"]
+[ext_resource type="Texture2D" uid="uid://d3k2rlc8aidla" path="res://Buttons/PlayButton2.png" id="3_hwlba"]
+[ext_resource type="Texture2D" uid="uid://cr2wlfrqs2hr0" path="res://Bg/birb.png" id="5_rjv2s"]
+[ext_resource type="AudioStream" uid="uid://cx677hukkr0gn" path="res://Sound Effects/button_pressed.mp3" id="5_ysq88"]
+[ext_resource type="Texture2D" uid="uid://5543xu1fatd6" path="res://Buttons/QuitButton1.png" id="6_guhid"]
+[ext_resource type="Texture2D" uid="uid://kuvujgstp0b7" path="res://Buttons/QuitButton2.png" id="7_yrxb7"]
+[ext_resource type="Texture2D" uid="uid://cy4rtgpc8bld0" path="res://Buttons/HelpButton1.png" id="8_0oc2v"]
+[ext_resource type="Texture2D" uid="uid://drb12k56vx5d5" path="res://Buttons/HelpButton2.png" id="9_oydoy"]
+[ext_resource type="PackedScene" uid="uid://b2v18tf6dhuir" path="res://CharacterSelection.tscn" id="11_jwnnw"]
+[ext_resource type="PackedScene" path="res://birb_game.tscn" id="12_hmqkb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgnsr"]
+texture = ExtResource("1_terv2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqgkr"]
+texture = ExtResource("2_8xad6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0bok"]
+texture = ExtResource("3_hwlba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cipw1"]
+texture = ExtResource("3_hwlba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7at7n"]
+texture = ExtResource("6_guhid")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mksbl"]
+texture = ExtResource("7_yrxb7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjkb4"]
+texture = ExtResource("7_yrxb7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ks7ja"]
+texture = ExtResource("8_0oc2v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2q2pp"]
+texture = ExtResource("9_oydoy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jd5wu"]
+texture = ExtResource("9_oydoy")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 641.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qtf2m")
+
+[node name="Main Menu" type="Node2D" parent="."]
+position = Vector2(0, 36.6667)
+
+[node name="Panel" type="Panel" parent="Main Menu"]
+offset_left = -1.06232
+offset_top = -20.5381
+offset_right = 1918.94
+offset_bottom = 1059.46
+theme_override_styles/panel = SubResource("StyleBoxTexture_kgnsr")
+
+[node name="Button_sound" type="AudioStreamPlayer2D" parent="Main Menu"]
+position = Vector2(1502.59, 1162)
+stream = ExtResource("5_ysq88")
+volume_db = 5.0
+
+[node name="PlayBTN" type="Button" parent="Main Menu"]
+offset_left = 840.673
+offset_top = 521.101
+offset_right = 1080.67
+offset_bottom = 656.101
+theme_override_styles/normal = SubResource("StyleBoxTexture_cqgkr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f0bok")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cipw1")
+
+[node name="QuitBTN" type="Button" parent="Main Menu"]
+offset_left = 840.673
+offset_top = 824.101
+offset_right = 1080.67
+offset_bottom = 959.101
+theme_override_styles/normal = SubResource("StyleBoxTexture_7at7n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mksbl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kjkb4")
+
+[node name="JoinBTN" type="Button" parent="Main Menu"]
+offset_left = 845.753
+offset_top = 674.203
+offset_right = 1085.75
+offset_bottom = 809.203
+theme_override_styles/normal = SubResource("StyleBoxTexture_ks7ja")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2q2pp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jd5wu")
+
+[node name="Logo" type="Sprite2D" parent="Main Menu"]
+position = Vector2(986.673, 290.101)
+scale = Vector2(1.37763, 1.24128)
+texture = ExtResource("5_rjv2s")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1464.0
+offset_top = 21.0
+offset_right = 1851.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 100
+
+[node name="birb_game" parent="." instance=ExtResource("12_hmqkb")]
+position = Vector2(4697, 57)
+
+[node name="CharacterSelect" parent="." instance=ExtResource("11_jwnnw")]
+position = Vector2(2434, 50)
+
+[connection signal="pressed" from="Main Menu/PlayBTN" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Main Menu/QuitBTN" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Main Menu/JoinBTN" to="." method="_on_join_btn_pressed"]
