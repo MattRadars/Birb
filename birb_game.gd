@@ -11,7 +11,7 @@ var scroll
 const SCROLL_SPEED : int = 5
 var screen_size : Vector2i
 var num_pipes : Array
-const PIPE_DELAY : int = 100
+const PIPE_DELAY : int = 1.5
 const PIPE_RANGE : int = 200
 const PIPE_LIMIT : int = 10
 var player_id
@@ -23,6 +23,7 @@ var player_count
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	scale = GameManager.scale_factor
 	if GameManager.randomized:
 		seed(GameManager.randomized)
 	player_id = multiplayer.get_unique_id()
@@ -41,7 +42,7 @@ func _ready():
 		CurrentPlayer.player = GameManager.Players[i].player
 		CurrentPlayer.player_id = i
 		CurrentPlayer.get_node("PlayerSprite").play(GameManager.Players[i].character)
-		CurrentPlayer.global_position = Vector2(400,400)
+		CurrentPlayer.global_position = Vector2(400,400) * GameManager.scale_factor
 		collisionlayer *= 2
 	player_count = GameManager.Players.size()
 	generate_pipes()
@@ -89,7 +90,7 @@ func generate_pipes():
 		pipes.collision_mask = int(player_count)**2 - 1
 	else:
 		pipes.collision_mask = player_count + 2
-	pipes.position.x = 2500
+	pipes.position.x = get_window().size.x * PIPE_DELAY
 	pipes.position.y = 500 - randi_range(-200, 200)
 	add_child(pipes)
 	num_pipes.append(pipes)
