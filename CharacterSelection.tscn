@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b2v18tf6dhuir"]
+[gd_scene load_steps=77 format=3 uid="uid://b2v18tf6dhuir"]
 
 [ext_resource type="Script" path="res://CharacterSelect.gd" id="1_njh8l"]
 [ext_resource type="Texture2D" uid="uid://dxw7m1ldyarih" path="res://Bg/forest-1.png" id="2_fr43u"]
@@ -39,6 +39,9 @@ texture = ExtResource("3_icgpb")
 texture = ExtResource("3_icgpb")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufvht"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hfhbw"]
+texture = ExtResource("3_icgpb")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrnbj"]
 texture = ExtResource("3_icgpb")
@@ -140,8 +143,6 @@ texture = ExtResource("21_dyqxe")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mfye"]
 texture = ExtResource("22_s8iod")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7n1r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hpokr"]
 
@@ -361,12 +362,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ga4wb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1edog"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cc85n"]
-
 [node name="CharacterSelect" type="Node2D"]
 position = Vector2(22, 8)
 script = ExtResource("1_njh8l")
@@ -388,7 +383,9 @@ pivot_offset = Vector2(150, 75)
 theme_override_styles/normal = SubResource("StyleBoxTexture_kps4j")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ngndd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ufvht")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hfhbw")
 theme_override_styles/focus = SubResource("StyleBoxTexture_mrnbj")
+disabled = true
 
 [node name="P1Border" type="Sprite2D" parent="."]
 position = Vector2(241, 450)
@@ -463,7 +460,6 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_t7n1r")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
 toggle_mode = true
 
@@ -588,7 +584,6 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ga4wb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
 toggle_mode = true
 
@@ -665,7 +660,6 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_1edog")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
 toggle_mode = true
 
@@ -742,7 +736,6 @@ scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxTexture_350ov")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p7dnq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8mfye")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_cc85n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hpokr")
 toggle_mode = true
 

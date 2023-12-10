@@ -1,6 +1,6 @@
 extends Node2D
 
-var flag = false
+var flag
 var player_id
 var selectedcharacter = ""
 signal start_game
@@ -10,15 +10,8 @@ func _ready():
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(player_id).to_int())
 	update_global_value.rpc("player_count", len(GameManager.Players))
 	update_global_value.rpc("ready_text", 0)
-	for i in GameManager.Players:
-		if GameManager.Players[i].player == 1:
-			$"P1Border/Player Name".text = GameManager.Players[i].name
-		if GameManager.Players[i].player == 2:
-			$"P2Border/Player Name".text = GameManager.Players[i].name
-		if GameManager.Players[i].player == 3:
-			$"P3Border/Player Name".text = GameManager.Players[i].name
-		if GameManager.Players[i].player == 4:
-			$"P4Border/Player Name".text = GameManager.Players[i].name
+	scale = GameManager.scale_factor
+	flag = false
 	
 	
 func _process(_delta):
@@ -28,6 +21,15 @@ func _process(_delta):
 	#if GameManager.Players:
 		#$Label.text = str(player_id)
 	$Announcement.text = GameManager.ready_text
+	for i in GameManager.Players:
+		if GameManager.Players[i].player == 1:
+			$"P1Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 2:
+			$"P2Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 3:
+			$"P3Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 4:
+			$"P4Border/Player Name".text = GameManager.Players[i].name
 	
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == player_id:
 		if GameManager.Players.has(player_id):
@@ -47,10 +49,44 @@ func _process(_delta):
 			$P4Border/PlayerSelect.visible = true
 			$P4Border/ConfirmBTN.visible = true
 			
+			for i in GameManager.Players:
+				var id = GameManager.Players[i].player
+				var styling = StyleBoxTexture.new()
+				match id:
+					1:
+						if GameManager.Players[i].ready == true:
+							styling.texture = load("res://Buttons/check.png")
+							$P1Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+						else:
+							styling.texture = load("res://Buttons/x.png")
+							$P1Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+					2:
+						if GameManager.Players[i].ready == true:
+							styling.texture = load("res://Buttons/check.png")
+							$P2Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+						else:
+							styling.texture = load("res://Buttons/x.png")
+							$P2Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+					3:
+						if GameManager.Players[i].ready == true:
+							styling.texture = load("res://Buttons/check.png")
+							$P3Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+						else:
+							styling.texture = load("res://Buttons/x.png")
+							$P3Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+					4:
+						if GameManager.Players[i].ready == true:
+							styling.texture = load("res://Buttons/check.png")
+							$P4Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+						else:
+							styling.texture = load("res://Buttons/x.png")
+							$P4Border/ConfirmBTN.add_theme_stylebox_override('disabled', styling)
+			
 			if GameManager.Players[player_id].player == 1:
-				if flag:
-					$Start.visible = true
+				if GameManager.ready_to_start:
 					$Start.disabled = false
+				else:
+					$Start.disabled = true
 				#$P1Border/ConfirmBTN.set_pressed_no_signal(GameManager.Players[player_id].ready)
 				$P1Border/PlayerSelect.visible = true
 				$P2Border/Left.disabled = true
@@ -291,8 +327,12 @@ func _on_right_pressed():
 func _on_select_player_pressed():
 	GameManager.SelectedCharacter = selectedcharacter
 	print(GameManager.SelectedCharacter)
-	get_tree().change_scene_to_file("res://Lan.tscn")
-
+	game_start.rpc()
+	
+@rpc("any_peer", "call_local")
+func game_start():
+	get_tree().change_scene_to_file("res://birb_game.tscn")
+	self.hide()
 
 func _input(event):
 	if event.is_action_pressed("back_scene"):
@@ -303,7 +343,7 @@ func _input(event):
 		$Frog.play("clicked")
 		await get_tree().create_timer(1).timeout
 		$Frog.visible = false
-	
+
 @rpc("any_peer")
 func _on_button_toggled(button_pressed: bool):
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == player_id:
@@ -322,10 +362,12 @@ func _on_button_toggled(button_pressed: bool):
 	$Announcement.text = GameManager.ready_text
 	if ready_count == GameManager.player_count:
 		$PlayersReady.play()
-		flag = true
+		GameManager.ready_to_start = true
+		update_global_value.rpc("ready_to_start", true)
 	else:
 		$PlayersReady.stop()
-		flag = false
+		GameManager.ready_to_start = false
+		update_global_value.rpc("ready_to_start", false)
 
 @rpc("any_peer", "call_local")
 func update_global_value(type, data):
@@ -341,6 +383,8 @@ func update_global_value(type, data):
 		GameManager.player_count = data
 	if type == "ready_text":
 		GameManager.ready_text = str(str(data) + "/" + str(GameManager.player_count) + " players are ready!")
+	if type == "ready_to_start":
+		GameManager.ready_to_start = data
 			
 
 	

@@ -33,6 +33,12 @@ func _input(event):
 	#get_tree().change_scene_to_file("res://CharacterSelection.tscn")
 	
 func _process(_delta):
+	if !GameManager.Players.has(multiplayer.get_unique_id()):
+		$StartBTN_temp.disabled = true
+		$StartBTN_temp.visible = false
+	else:
+		$StartBTN_temp.disabled = false
+		$StartBTN_temp.visible = true
 	pass
 
 func _on_host_btn_pressed():
@@ -43,8 +49,12 @@ func _on_host_btn_pressed():
 		print("Hosting failed! Error: " + str(error))
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+	var seed = randi_range(1, 69420)
+	GameManager.randomized = seed
+	
 	
 	multiplayer.set_multiplayer_peer(peer)
+	CharacterSelect()
 	SendPlayerInformation($EnterUsername.text, multiplayer.get_unique_id())
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
@@ -55,6 +65,8 @@ func _on_join_btn_pressed():
 	peer.create_client(Address, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	multiplayer.set_multiplayer_peer(peer)
+	$HostBTN.visible = false
+	$HostBTN.disabled = true
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
 	
@@ -76,6 +88,7 @@ func SendPlayerInformation(player_name, id):
 			"ready": false,
 			"dead": false,
 		}
+	update_seed.rpc(GameManager.randomized)
 		
 	if multiplayer.is_server():
 		for i in GameManager.Players:
@@ -83,11 +96,9 @@ func SendPlayerInformation(player_name, id):
 			
 
 
-@rpc('any_peer', 'call_local')
 func CharacterSelect():
 	character_select = load('res://CharacterSelection.tscn').instantiate()
 	get_tree().root.add_child(character_select)
-	character_select.scale = GameManager.scale_factor
 	self.hide()
 	
 
@@ -104,9 +115,8 @@ func peer_disconnected(id):
 			i.queue_free()
 
 func connected_to_server():
-	
 	print("Connected to server!")
-	SendPlayerInformation.rpc($EnterUsername.text, multiplayer.get_unique_id())
+	SendPlayerInformation.rpc_id(1, $EnterUsername.text, multiplayer.get_unique_id())
 	
 func connection_failed():
 	print("Connection failed!")
@@ -114,8 +124,12 @@ func connection_failed():
 func _on_start_btn_temp_pressed():
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
-	CharacterSelect.rpc()
+	CharacterSelect()
 	
 @rpc("any_peer", "call_local")
 func update_username(id):
 	GameManager.Players[id].username = $EnterUsername.text
+	
+@rpc("any_peer", "call_local")
+func update_seed(value):
+	GameManager.randomized = value
