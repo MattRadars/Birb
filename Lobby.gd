@@ -1,10 +1,10 @@
 extends Node2D
 
 #kyle's
-#@export var Address = "172.25.0.1"
+@export var Address = "172.25.0.1"
 
 #john's
-@export var Address = "192.168.1.103"
+#@export var Address = "192.168.1.103"
 @export var port = 35
 var peer
 var character_select
@@ -45,7 +45,7 @@ func _on_host_btn_pressed():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	
 	multiplayer.set_multiplayer_peer(peer)
-	SendPlayerInformation(multiplayer.get_unique_id())
+	SendPlayerInformation($EnterUsername.text, multiplayer.get_unique_id())
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
 
@@ -59,7 +59,7 @@ func _on_join_btn_pressed():
 	await get_tree().create_timer(0.17).timeout
 	
 @rpc('any_peer')
-func SendPlayerInformation(id):
+func SendPlayerInformation(player_name, id):
 	var player = 1
 
 	if !GameManager.Players.has(id):
@@ -67,7 +67,7 @@ func SendPlayerInformation(id):
 			if GameManager.Players[i].player == player:
 				player += 1
 		GameManager.Players[id] = {
-			"name": $EnterUsername.text,
+			"name": player_name,
 			"id": id,
 			"username": "Player",
 			"character": "C4",
@@ -79,7 +79,7 @@ func SendPlayerInformation(id):
 		
 	if multiplayer.is_server():
 		for i in GameManager.Players:
-			SendPlayerInformation.rpc(i)
+			SendPlayerInformation.rpc(GameManager.Players[i].name, i)
 			
 
 
@@ -106,7 +106,7 @@ func peer_disconnected(id):
 func connected_to_server():
 	
 	print("Connected to server!")
-	SendPlayerInformation.rpc_id(1, multiplayer.get_unique_id())
+	SendPlayerInformation.rpc($EnterUsername.text, multiplayer.get_unique_id())
 	
 func connection_failed():
 	print("Connection failed!")

@@ -84,9 +84,9 @@ func _process(_delta):
 					$"P4Border/Player Name".visible = false
 					$P4Border/PlayerSelect.visible = false
 					$P4Border/ConfirmBTN.visible = false
-				#$P2Border/ConfirmBTN.disabled = true
-				#$P3Border/ConfirmBTN.disabled = true
-				#$P4Border/ConfirmBTN.disabled = true
+				$P2Border/ConfirmBTN.disabled = true
+				$P3Border/ConfirmBTN.disabled = true
+				$P4Border/ConfirmBTN.disabled = true
 				
 			if GameManager.Players[player_id].player == 2:
 				#$P2Border/ConfirmBTN.set_pressed_no_signal(GameManager.Players[player_id].ready)
@@ -103,9 +103,9 @@ func _process(_delta):
 				$P3Border/Right.visible = false
 				$P4Border/Left.visible = false
 				$P4Border/Right.visible = false
-				#$P1Border/ConfirmBTN.disabled = true
-				#$P3Border/ConfirmBTN.disabled = true
-				#$P4Border/ConfirmBTN.disabled = true
+				$P1Border/ConfirmBTN.disabled = true
+				$P3Border/ConfirmBTN.disabled = true
+				$P4Border/ConfirmBTN.disabled = true
 				$Start.disabled = true
 				$Start.visible = false
 				
@@ -137,9 +137,9 @@ func _process(_delta):
 				$P2Border/Right.visible = false
 				$P4Border/Left.visible = false
 				$P4Border/Right.visible = false
-				#$P1Border/ConfirmBTN.disabled = true
-				#$P2Border/ConfirmBTN.disabled = true
-				#$P4Border/ConfirmBTN.disabled = true
+				$P1Border/ConfirmBTN.disabled = true
+				$P2Border/ConfirmBTN.disabled = true
+				$P4Border/ConfirmBTN.disabled = true
 				$Start.disabled = true
 				$Start.visible = false
 				
@@ -164,9 +164,9 @@ func _process(_delta):
 				$P2Border/Right.visible = false
 				$P3Border/Left.visible = false
 				$P3Border/Right.visible = false
-				#$P1Border/ConfirmBTN.disabled = true
-				#$P2Border/ConfirmBTN.disabled = true
-				#$P3Border/ConfirmBTN.disabled = true
+				$P1Border/ConfirmBTN.disabled = true
+				$P2Border/ConfirmBTN.disabled = true
+				$P3Border/ConfirmBTN.disabled = true
 				$Start.disabled = true
 				$Start.visible = false
 				
@@ -342,5 +342,5 @@ func update_global_value(type, data):
 	if type == "ready_text":
 		GameManager.ready_text = str(str(data) + "/" + str(GameManager.player_count) + " players are ready!")
 			
-		
+
 	
