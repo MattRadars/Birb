@@ -67,6 +67,7 @@ func SendPlayerInformation(id):
 			if GameManager.Players[i].player == player:
 				player += 1
 		GameManager.Players[id] = {
+			"name": $EnterUsername.text,
 			"id": id,
 			"username": "Player",
 			"character": "C4",

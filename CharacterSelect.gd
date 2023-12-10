@@ -10,6 +10,15 @@ func _ready():
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(player_id).to_int())
 	update_global_value.rpc("player_count", len(GameManager.Players))
 	update_global_value.rpc("ready_text", 0)
+	for i in GameManager.Players:
+		if GameManager.Players[i].player == 1:
+			$"P1Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 2:
+			$"P2Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 3:
+			$"P3Border/Player Name".text = GameManager.Players[i].name
+		if GameManager.Players[i].player == 4:
+			$"P4Border/Player Name".text = GameManager.Players[i].name
 	
 	
 func _process(_delta):
@@ -290,7 +299,7 @@ func _input(event):
 		GameManager.player_count = 0
 		get_tree().change_scene_to_file("res://MainMenu.tscn")
 		
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventKey and event.is_pressed() and event.as_text_keycode() == "F":
 		$Frog.play("clicked")
 		await get_tree().create_timer(1).timeout
 		$Frog.visible = false
