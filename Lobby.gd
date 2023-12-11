@@ -86,6 +86,10 @@ func SendPlayerInformation(player_name, id):
 			"player": player,
 			"ready": false,
 			"dead": false,
+			"phase": false,
+			"shield": false,
+			"shrink": false,
+			"is_powerup": false
 		}
 	update_seed.rpc(GameManager.randomized)
 		

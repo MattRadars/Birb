@@ -535,6 +535,16 @@ rotation = 0.000587691
 slide_on_ceiling = false
 script = ExtResource("1_qba5w")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+top_level = true
+position = Vector2(-4, -7)
+rotation = -3.14159
+scale = Vector2(1.35853, -0.940293)
+shape = SubResource("CircleShape2D_yqiqg")
+debug_color = Color(0.0431373, 0.580392, 0.796078, 0.501961)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 top_level = true
 position = Vector2(-4, -7)
@@ -556,7 +566,7 @@ replication_config = SubResource("SceneReplicationConfig_7sxdc")
 position = Vector2(9.99236, -13.0059)
 scale = Vector2(3.25114, 2.80049)
 sprite_frames = SubResource("SpriteFrames_8g321")
-frame_progress = 0.991146
+frame_progress = 0.695615
 
 [node name="FlapFlap" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_umbo3")
@@ -564,3 +574,15 @@ stream = ExtResource("15_umbo3")
 [node name="Boom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_juplr")
 volume_db = 10.0
+
+[node name="PhaseTimer" type="Timer" parent="."]
+
+[node name="ActivePowerup" type="Label" parent="."]
+offset_left = -40.0452
+offset_top = -76.9765
+offset_right = 40.9548
+offset_bottom = -53.9765
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
