@@ -69,8 +69,12 @@ func _process(_delta):
 	for i in GameManager.Players:
 		if GameManager.Players[i].dead:
 			count -= 1
+			if count == 1:
+				update_global_winner.rpc([GameManager.Players[i].name, GameManager.Players[i].character])
 	if count == 0:
 		stop = true
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://Ending.tscn")
 	if !stop:
 		for pipes in num_pipes:
 			pipes.position.x -= SCROLL_SPEED
@@ -96,5 +100,7 @@ func generate_pipes():
 	num_pipes.append(pipes)
 
 @rpc("any_peer", "call_local")
+func update_global_winner(value):
+	GameManager.winner = value
 func update_global(value):
 	GameManager.randomized = value

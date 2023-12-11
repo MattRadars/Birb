@@ -1,10 +1,10 @@
 extends Node2D
 
 #kyle's
-@export var Address = "172.25.0.1"
+#@export var Address = "172.25.0.1"
 
 #john's
-#@export var Address = "192.168.1.103"
+@export var Address = "172.16.8.16"
 @export var port = 35
 var peer
 var character_select
@@ -81,7 +81,6 @@ func SendPlayerInformation(player_name, id):
 		GameManager.Players[id] = {
 			"name": player_name,
 			"id": id,
-			"username": "Player",
 			"character": "C4",
 			"selected": 0,
 			"player": player,
@@ -126,9 +125,6 @@ func _on_start_btn_temp_pressed():
 	await get_tree().create_timer(0.17).timeout
 	CharacterSelect()
 	
-@rpc("any_peer", "call_local")
-func update_username(id):
-	GameManager.Players[id].username = $EnterUsername.text
 	
 @rpc("any_peer", "call_local")
 func update_seed(value):

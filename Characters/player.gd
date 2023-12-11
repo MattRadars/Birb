@@ -32,8 +32,14 @@ func _physics_process(delta):
 		
 			if Input.is_action_just_pressed("Jump") and GameManager.Players[user_id].dead == false:
 				velocity.y = FLAP
+				$FlapFlap.play()
 				
 			if is_on_ceiling() or is_on_floor() or is_on_wall():
+				var position = self.position
+				$DeathAnimation.play()
+				$Boom.play()
+				await get_tree().create_timer(0.5).timeout
+				$DeathAnimation.stop()
 				set_player_dead()
 				set_rotation(PI/2)
 				$PlayerSprite.stop()
