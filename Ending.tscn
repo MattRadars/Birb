@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqu7b2rhtvld5"]
+[gd_scene load_steps=24 format=3 uid="uid://bqu7b2rhtvld5"]
 
 [ext_resource type="Script" path="res://Ending.gd" id="1_eiqq4"]
 [ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="2_gma12"]
@@ -7,11 +7,96 @@
 [ext_resource type="Texture2D" uid="uid://bfwvah5ws2yc3" path="res://Bg/log-throne.png" id="3_2030y"]
 [ext_resource type="Texture2D" uid="uid://pi7oh65a8144" path="res://Bg/385520771_1562099854586013_6769846476470502842_n.png" id="4_hilye"]
 [ext_resource type="Texture2D" uid="uid://4ayhip7yf4ed" path="res://Characters/C4/Creeper1.png" id="7_80o3k"]
+[ext_resource type="Texture2D" uid="uid://bxi08gwhhgkh0" path="res://Characters/C4/Creeper2.png" id="8_egcxv"]
+[ext_resource type="Texture2D" uid="uid://b30mthqqs13v1" path="res://Characters/C4/Creeper3.png" id="9_d1aww"]
+[ext_resource type="Texture2D" uid="uid://cqgnohpy1hic2" path="res://Characters/Bluey/BlueBird1.png" id="10_n23ik"]
+[ext_resource type="Texture2D" uid="uid://dot5vx5l5bv83" path="res://Characters/Bluey/BlueBird2.png" id="11_8qlf6"]
+[ext_resource type="Texture2D" uid="uid://b8a43l4nxle5g" path="res://Characters/Bluey/BlueBird3.png" id="12_52dqs"]
+[ext_resource type="Texture2D" uid="uid://cvp1rv0qkfwvb" path="res://Characters/Sunny/Sunny1.png" id="13_r1uke"]
+[ext_resource type="Texture2D" uid="uid://clroq330a0tyl" path="res://Characters/Sunny/Sunny2.png" id="14_cjw80"]
+[ext_resource type="Texture2D" uid="uid://c23ufchbekp67" path="res://Characters/Sunny/Sunny3.png" id="15_5rruw"]
+[ext_resource type="Texture2D" uid="uid://5sphveud5owj" path="res://Characters/Reddy/Pinky1.png" id="16_kwty6"]
+[ext_resource type="Texture2D" uid="uid://dxgpymfvpn6m8" path="res://Characters/Reddy/Pinky2.png" id="17_wgi78"]
+[ext_resource type="Texture2D" uid="uid://2nfq851gc75b" path="res://Characters/Reddy/Pinky3.png" id="18_au63r"]
+[ext_resource type="Texture2D" uid="uid://do7u4ssdjiani" path="res://Characters/Peace/resized duck1.png" id="19_epm5s"]
+[ext_resource type="Texture2D" uid="uid://bg7o0nmwup740" path="res://Characters/Peace/resized duck2.png" id="20_y68cq"]
+[ext_resource type="Texture2D" uid="uid://daj4pe4hl402s" path="res://Characters/Peace/resized duck3.png" id="21_48i2r"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ydc0"]
 texture = ExtResource("2_sx6i7")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_klyks"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cg1pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_80o3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_egcxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d1aww")
+}],
+"loop": true,
+"name": &"Player0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_n23ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8qlf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_52dqs")
+}],
+"loop": true,
+"name": &"Player1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_r1uke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_cjw80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5rruw")
+}],
+"loop": true,
+"name": &"Player2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_kwty6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wgi78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_au63r")
+}],
+"loop": true,
+"name": &"Player3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_epm5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_y68cq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_48i2r")
+}],
+"loop": true,
+"name": &"Player4",
+"speed": 5.0
+}]
 
 [node name="Ending" type="Node2D"]
 script = ExtResource("1_eiqq4")
@@ -21,15 +106,20 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4ydc0")
 
-[node name="Winner" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_klyks")
-
-[node name="Crown" type="AnimatedSprite2D" parent="."]
-
-[node name="Throne" type="Sprite2D" parent="."]
+[node name="Throne" type="Sprite2D" parent="BG"]
 position = Vector2(960, 671)
 scale = Vector2(3.86719, 4.27344)
 texture = ExtResource("3_2030y")
+
+[node name="BG" type="Panel" parent="BG"]
+modulate = Color(0, 0, 0, 0.176471)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_4ydc0")
+
+[node name="Crown" type="AnimatedSprite2D" parent="."]
 
 [node name="Title" type="Sprite2D" parent="."]
 position = Vector2(988.5, 208.5)
@@ -43,7 +133,7 @@ offset_right = 1374.0
 offset_bottom = 1015.0
 theme_override_fonts/font = ExtResource("2_gma12")
 theme_override_font_sizes/font_size = 50
-text = "Press 'Spacebar' to Play again."
+text = "Press 'Enter' to Play again."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -54,7 +144,7 @@ offset_right = 1385.0
 offset_bottom = 1073.0
 theme_override_fonts/font = ExtResource("2_gma12")
 theme_override_font_sizes/font_size = 50
-text = "Press 'X' to go back to Main Menu"
+text = "Press 'Escape' to go back to Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,7 +156,6 @@ offset_bottom = 343.0
 theme_override_colors/font_color = Color(0, 0.454902, 0, 1)
 theme_override_fonts/font = ExtResource("2_gma12")
 theme_override_font_sizes/font_size = 100
-text = "Player 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -74,7 +163,8 @@ vertical_alignment = 1
 stream = ExtResource("2_xl8yy")
 autoplay = true
 
-[node name="temp" type="Sprite2D" parent="."]
-position = Vector2(949, 558)
-scale = Vector2(1.58594, 1.5625)
-texture = ExtResource("7_80o3k")
+[node name="Winner" type="AnimatedSprite2D" parent="."]
+position = Vector2(961, 551)
+scale = Vector2(1.77045, 1.77045)
+sprite_frames = SubResource("SpriteFrames_cg1pv")
+animation = &"Player4"

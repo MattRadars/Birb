@@ -227,6 +227,11 @@ func _process(_delta):
 							$P1Border/PlayerSelect.play("Player3")
 							$P1Border/PlayerSelect/Name.text = "Pinky"
 							selectedcharacter = "Pinky"
+						4:
+							$P1Border/PlayerSelect.play("Player4")
+							$P1Border/PlayerSelect/Name.text = "Peace"
+							selectedcharacter = "Peace"
+							
 			if GameManager.Players[i].player == 2:
 				$P2Border/ConfirmBTN.set_pressed_no_signal(GameManager.Players[i].ready)
 				match GameManager.Players[i].selected:
@@ -246,6 +251,10 @@ func _process(_delta):
 							$P2Border/PlayerSelect.play("Player3")
 							$P2Border/PlayerSelect/Name.text = "Pinky"
 							selectedcharacter = "Pinky"
+						4:
+							$P2Border/PlayerSelect.play("Player4")
+							$P2Border/PlayerSelect/Name.text = "Peace"
+							selectedcharacter = "Peace"
 			
 			if GameManager.Players[i].player == 3:
 				$P3Border/ConfirmBTN.set_pressed_no_signal(GameManager.Players[i].ready)
@@ -266,6 +275,10 @@ func _process(_delta):
 							$P3Border/PlayerSelect.play("Player3")
 							$P3Border/PlayerSelect/Name.text = "Pinky"
 							selectedcharacter = "Pinky"
+						4:
+							$P3Border/PlayerSelect.play("Player4")
+							$P3Border/PlayerSelect/Name.text = "Peace"
+							selectedcharacter = "Peace"
 			
 			if GameManager.Players[i].player == 4:
 				$P4Border/ConfirmBTN.set_pressed_no_signal(GameManager.Players[i].ready)
@@ -286,14 +299,17 @@ func _process(_delta):
 							$P4Border/PlayerSelect.play("Player3")
 							$P4Border/PlayerSelect/Name.text = "Pinky"
 							selectedcharacter = "Pinky"
-
+						4:
+							$P4Border/PlayerSelect.play("Player4")
+							$P4Border/PlayerSelect/Name.text = "Peace"
+							selectedcharacter = "Peace"
 
 func _on_left_pressed():
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == player_id:
 		if GameManager.Players[player_id].selected >= 0:
 			GameManager.Players[player_id].selected -= 1
 		if GameManager.Players[player_id].selected == -1:
-			GameManager.Players[player_id].selected = 3
+			GameManager.Players[player_id].selected = 4
 		match GameManager.Players[player_id].selected:
 			0:
 				GameManager.Players[player_id].character = "C4"
@@ -303,14 +319,16 @@ func _on_left_pressed():
 				GameManager.Players[player_id].character = "Sunny"
 			3:
 				GameManager.Players[player_id].character = "Pinky"
+			4:
+				GameManager.Players[player_id].character = "Peace"
 		update_global_value.rpc("character", [GameManager.Players[player_id].selected, 
 		GameManager.Players[player_id].character, player_id])
 
 func _on_right_pressed():
 	if $MultiplayerSynchronizer.get_multiplayer_authority() == player_id:
-		if GameManager.Players[player_id].selected <= 3:
+		if GameManager.Players[player_id].selected <= 4:
 			GameManager.Players[player_id].selected += 1
-		if GameManager.Players[player_id].selected == 4:
+		if GameManager.Players[player_id].selected == 5:
 			GameManager.Players[player_id].selected = 0
 		match GameManager.Players[player_id].selected:
 			0:
@@ -321,6 +339,8 @@ func _on_right_pressed():
 				GameManager.Players[player_id].character = "Sunny"
 			3:
 				GameManager.Players[player_id].character = "Pinky"
+			4:
+				GameManager.Players[player_id].character = "Peace"
 		update_global_value.rpc("character", [GameManager.Players[player_id].selected, 
 		GameManager.Players[player_id].character, player_id])
 

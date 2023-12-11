@@ -12,6 +12,7 @@ var player_count = 1
 var ready_players = 0
 var ready_text = "0/1 players are ready!"
 var ready_to_start
+var winner = ""
 
 func _ready():
 	pass

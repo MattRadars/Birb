@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b2v18tf6dhuir"]
+[gd_scene load_steps=80 format=3 uid="uid://b2v18tf6dhuir"]
 
 [ext_resource type="Script" path="res://CharacterSelect.gd" id="1_njh8l"]
 [ext_resource type="Texture2D" uid="uid://dxw7m1ldyarih" path="res://Bg/forest-1.png" id="2_fr43u"]
@@ -18,9 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://5sphveud5owj" path="res://Characters/Reddy/Pinky1.png" id="17_x7w1b"]
 [ext_resource type="Texture2D" uid="uid://dxgpymfvpn6m8" path="res://Characters/Reddy/Pinky2.png" id="18_8q5sd"]
 [ext_resource type="Texture2D" uid="uid://2nfq851gc75b" path="res://Characters/Reddy/Pinky3.png" id="19_h3lw4"]
+[ext_resource type="Texture2D" uid="uid://do7u4ssdjiani" path="res://Characters/Peace/resized duck1.png" id="20_dshdr"]
 [ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="20_npvim"]
+[ext_resource type="Texture2D" uid="uid://bg7o0nmwup740" path="res://Characters/Peace/resized duck2.png" id="21_5exdh"]
 [ext_resource type="Texture2D" uid="uid://0agl3j7twyk5" path="res://Buttons/x.png" id="21_dyqxe"]
 [ext_resource type="Texture2D" uid="uid://cl4obe6kd0xua" path="res://Buttons/check.png" id="22_s8iod"]
+[ext_resource type="Texture2D" uid="uid://daj4pe4hl402s" path="res://Characters/Peace/resized duck3.png" id="22_xnilb"]
 [ext_resource type="AudioStream" uid="uid://1s25724c8ect" path="res://Sound Effects/choose.mp3" id="23_3gq2x"]
 [ext_resource type="Texture2D" uid="uid://bgf5r5i4j8gv5" path="res://Characters/BIG SMOKE.png" id="24_a08i2"]
 [ext_resource type="AudioStream" uid="uid://dljp6i7t7omoe" path="res://Sound Effects/players_ready.mp3" id="24_aulnw"]
@@ -124,6 +127,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"Player3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_dshdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5exdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xnilb")
+}],
+"loop": true,
+"name": &"Player4",
 "speed": 5.0
 }]
 
@@ -432,10 +449,10 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="P1Border"]
-position = Vector2(0.588234, -26.4706)
+position = Vector2(1, -20)
 scale = Vector2(0.441176, 0.441176)
 sprite_frames = SubResource("SpriteFrames_wgyld")
-animation = &"Player3"
+animation = &"Player0"
 
 [node name="Name" type="Label" parent="P1Border/PlayerSelect"]
 anchors_preset = -1
@@ -556,10 +573,10 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="P2Border"]
-position = Vector2(0.588234, -26.4706)
+position = Vector2(1, -20)
 scale = Vector2(0.441176, 0.441176)
 sprite_frames = SubResource("SpriteFrames_wgyld")
-animation = &"Player3"
+animation = &"Player4"
 
 [node name="Name" type="Label" parent="P2Border/PlayerSelect"]
 anchors_preset = -1
@@ -632,7 +649,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="P3Border"]
-position = Vector2(0.588234, -26.4706)
+position = Vector2(0.588, -20)
 scale = Vector2(0.441176, 0.441176)
 sprite_frames = SubResource("SpriteFrames_wgyld")
 animation = &"Player3"
@@ -708,7 +725,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="PlayerSelect" type="AnimatedSprite2D" parent="P4Border"]
-position = Vector2(0.588234, -26.4706)
+position = Vector2(0.588, -20)
 scale = Vector2(0.441176, 0.441176)
 sprite_frames = SubResource("SpriteFrames_wgyld")
 animation = &"Player3"
