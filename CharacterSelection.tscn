@@ -380,7 +380,7 @@ animations = [{
 }]
 
 [node name="CharacterSelect" type="Node2D"]
-position = Vector2(22, 8)
+position = Vector2(14, 8)
 script = ExtResource("1_njh8l")
 
 [node name="Panel" type="Panel" parent="."]

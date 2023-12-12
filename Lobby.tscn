@@ -11,12 +11,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vn4i"]
 texture = ExtResource("1_upkwl")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5kqp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdv1c"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sqjw"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_itgcy"]
 texture = ExtResource("5_8rl1b")
 
@@ -47,7 +41,14 @@ texture = ExtResource("6_aksh4")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2r2u"]
 texture = ExtResource("6_aksh4")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5kqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdv1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sqjw"]
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(-35, -15)
 script = ExtResource("1_4b23h")
 
 [node name="Panel" type="Panel" parent="."]
@@ -56,36 +57,6 @@ offset_top = 18.0
 offset_right = 1957.0
 offset_bottom = 1098.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_4vn4i")
-
-[node name="Border" type="Sprite2D" parent="."]
-position = Vector2(959, 364)
-scale = Vector2(1.40234, 1.30469)
-texture = ExtResource("3_lp0wi")
-
-[node name="EnterUsername" type="LineEdit" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 677.0
-offset_top = 310.0
-offset_right = 1235.0
-offset_bottom = 419.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
-theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/caret_color = Color(0, 0, 0, 1)
-theme_override_colors/selection_color = Color(0, 0, 0, 1)
-theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
-theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_udfgj")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxTexture_m5kqp")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xdv1c")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_7sqjw")
-placeholder_text = "Enter username...."
 
 [node name="HostBTN" type="Button" parent="."]
 offset_left = 834.0
@@ -125,7 +96,78 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vvnr7")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_oshcc")
 theme_override_styles/focus = SubResource("StyleBoxTexture_k2r2u")
 
-[connection signal="text_submitted" from="EnterUsername" to="." method="_on_enter_username_text_submitted"]
+[node name="Border2" type="Sprite2D" parent="."]
+position = Vector2(959, 417)
+scale = Vector2(1.40234, 1.30469)
+texture = ExtResource("3_lp0wi")
+
+[node name="IP" type="LineEdit" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 677.0
+offset_top = 361.0
+offset_right = 1235.0
+offset_bottom = 470.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_udfgj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_m5kqp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xdv1c")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_7sqjw")
+placeholder_text = "Enter HOST IP"
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(959, 235)
+scale = Vector2(1.40234, 1.30469)
+texture = ExtResource("3_lp0wi")
+
+[node name="EnterUsername" type="LineEdit" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 677.0
+offset_top = 181.0
+offset_right = 1235.0
+offset_bottom = 290.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_udfgj")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_m5kqp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xdv1c")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_7sqjw")
+placeholder_text = "Enter username...."
+
+[node name="Warning" type="Label" parent="."]
+offset_left = 758.0
+offset_top = 287.0
+offset_right = 1141.0
+offset_bottom = 364.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_udfgj")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="HostBTN" to="." method="_on_host_btn_pressed"]
 [connection signal="pressed" from="JoinBTN" to="." method="_on_join_btn_pressed"]
 [connection signal="pressed" from="StartBTN_temp" to="." method="_on_start_btn_temp_pressed"]
+[connection signal="text_submitted" from="EnterUsername" to="." method="_on_enter_username_text_submitted"]

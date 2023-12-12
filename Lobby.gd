@@ -42,6 +42,7 @@ func _on_host_btn_pressed():
 	peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(port, 4)
 	if error != OK:
+		$Warning.text = "Server Already Exists!"
 		print("Hosting failed! Error: " + str(error))
 		return
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
@@ -55,15 +56,18 @@ func _on_host_btn_pressed():
 	await get_tree().create_timer(0.17).timeout
 
 func _on_join_btn_pressed():
-	peer = ENetMultiplayerPeer.new()
-	peer.create_client(Address, port)
-	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
-	multiplayer.set_multiplayer_peer(peer)
-	$HostBTN.visible = false
-	$HostBTN.disabled = true
-	$Button_sound.play()
-	await get_tree().create_timer(0.17).timeout
-	
+	if $IP.text == Address:
+		peer = ENetMultiplayerPeer.new()
+		peer.create_client($IP.text, port)
+		peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
+		multiplayer.set_multiplayer_peer(peer)
+		$HostBTN.visible = false
+		$HostBTN.disabled = true
+		$Button_sound.play()
+		await get_tree().create_timer(0.17).timeout
+	else:
+		$Warning.text = "Wrong Host Address!"
+		
 @rpc('any_peer')
 func SendPlayerInformation(player_name, id):
 	var player = 1
@@ -100,11 +104,11 @@ func CharacterSelect():
 	
 
 func peer_connected(id):
-	print("Player Connected" + str(id))
+	print("Player Connected " + str(id))
 
 	
 func peer_disconnected(id):
-	print("Player Disconnected" + str(id))
+	print("Player Disconnected " + str(id))
 	GameManager.Players.erase(id)
 	var players = get_tree().get_nodes_in_group("Player")
 	for i in players:
