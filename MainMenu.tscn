@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bfi1siu8g7bid"]
+[gd_scene load_steps=50 format=3 uid="uid://bfi1siu8g7bid"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_qtf2m"]
 [ext_resource type="Texture2D" uid="uid://dncbg58it0wtu" path="res://Buttons/PlayButton1.png" id="2_8xad6"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://uj5wsfeag45u" path="res://Sound Effects/theme.mp3" id="10_5441e"]
 [ext_resource type="AudioStream" uid="uid://cbbmu3vvqnbsm" path="res://Sound Effects/bird chirp.mp3" id="12_tui2l"]
 [ext_resource type="Texture2D" uid="uid://dnc1jjm7fkohl" path="res://Frames/Leaves-SpriteSheet.png" id="13_vgof7"]
+[ext_resource type="Texture2D" uid="uid://4n0bl8s2r57i" path="res://Frames/help-pop-up1.png" id="14_q5ucg"]
+[ext_resource type="Texture2D" uid="uid://cstxtwfe4etdv" path="res://Frames/help-pop-up2.png" id="15_cn0uf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgnsr"]
 texture = ExtResource("2_eeses")
@@ -170,8 +172,58 @@ texture = ExtResource("7_yrxb7")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihof7"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_lppjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_q5ucg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cn0uf")
+}],
+"loop": true,
+"name": &"Help",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_lec68"]
+resource_name = "Downwards"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HelpScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(980, 720), Vector2(980, 1500)]
+}
+
+[sub_resource type="Animation" id="Animation_8po8r"]
+resource_name = "Upwards"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HelpScreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(980, 1500), Vector2(980, 720)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5lnr"]
+_data = {
+"Downwards": SubResource("Animation_lec68"),
+"Upwards": SubResource("Animation_8po8r")
+}
+
 [node name="Menu" type="Node2D"]
-position = Vector2(1, -16)
+position = Vector2(0, -17)
 script = ExtResource("1_qtf2m")
 
 [node name="Panel" type="Panel" parent="."]
@@ -236,5 +288,19 @@ autoplay = true
 stream = ExtResource("12_tui2l")
 autoplay = true
 
+[node name="HelpScreen" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(980, 720)
+scale = Vector2(1.94666, 1.9891)
+sprite_frames = SubResource("SpriteFrames_lppjs")
+animation = &"Help"
+frame_progress = 0.453914
+
+[node name="HelpAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f5lnr")
+}
+
 [connection signal="pressed" from="PlayBTN" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="HelpBTN" to="." method="_on_help_btn_pressed"]
 [connection signal="pressed" from="QuitBTN" to="." method="_on_quit_btn_pressed"]

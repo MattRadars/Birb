@@ -758,6 +758,14 @@ toggle_mode = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 
+[node name="IP" type="Label" parent="."]
+offset_left = 778.0
+offset_top = 1008.0
+offset_right = 1180.0
+offset_bottom = 1104.0
+theme_override_fonts/font = ExtResource("20_npvim")
+theme_override_font_sizes/font_size = 50
+
 [connection signal="pressed" from="Start" to="." method="_on_select_player_pressed"]
 [connection signal="pressed" from="P1Border/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="P1Border/Right" to="." method="_on_right_pressed"]

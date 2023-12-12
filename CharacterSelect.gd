@@ -12,6 +12,7 @@ func _ready():
 	update_global_value.rpc("ready_text", 0)
 	scale = GameManager.scale_factor
 	flag = false
+	$IP.text = "IP: " + str(GameManager.ip)
 	
 	
 func _process(_delta):

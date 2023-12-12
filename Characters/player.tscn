@@ -99,7 +99,8 @@ animations = [{
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7sxdc"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 1
+properties/0/sync = true
+properties/0/watch = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmnar"]
 atlas = ExtResource("14_8yac3")

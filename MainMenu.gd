@@ -24,3 +24,16 @@ func _on_quit_btn_pressed():
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
 	get_tree().quit()
+
+func _input(event):
+	if event.is_action_pressed("back_scene"):
+		$HelpAnimation.play("Downwards")
+		await get_tree().create_timer(0.9).timeout 
+		$HelpScreen.visible = false
+
+func _on_help_btn_pressed(event):
+	$Button_sound.play()
+	if $HelpScreen.visible == false:
+		$HelpAnimation.play("Upwards")
+		$HelpScreen.visible = true
+		$HelpScreen.play()

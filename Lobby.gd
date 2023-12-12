@@ -1,10 +1,6 @@
 extends Node2D
 
-#kyle's
-#@export var Address = "172.25.0.1"
-
-#john's
-@export var Address = "172.16.8.16"
+@export var Address = IP.get_local_addresses()[4]
 @export var port = 35
 var peer
 var character_select
@@ -12,6 +8,7 @@ var game_start
 
 func _ready():
 	$EnterUsername.max_length = 8
+	GameManager.ip = Address
 	var viewport_size = get_viewport_rect().size
 	var reference_size = Vector2(1920, 1080)  # Your reference size for scaling
 	GameManager.scale_factor = viewport_size / reference_size
@@ -42,7 +39,6 @@ func _process(_delta):
 	pass
 
 func _on_host_btn_pressed():
-	#print("I worked")
 	peer = ENetMultiplayerPeer.new()
 	var error = peer.create_server(port, 4)
 	if error != OK:
@@ -52,7 +48,6 @@ func _on_host_btn_pressed():
 	var seed = randi_range(1, 69420)
 	GameManager.randomized = seed
 	
-	
 	multiplayer.set_multiplayer_peer(peer)
 	CharacterSelect()
 	SendPlayerInformation($EnterUsername.text, multiplayer.get_unique_id())
@@ -60,7 +55,6 @@ func _on_host_btn_pressed():
 	await get_tree().create_timer(0.17).timeout
 
 func _on_join_btn_pressed():
-	#print("I worked")
 	peer = ENetMultiplayerPeer.new()
 	peer.create_client(Address, port)
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
@@ -128,7 +122,6 @@ func _on_start_btn_temp_pressed():
 	$Button_sound.play()
 	await get_tree().create_timer(0.17).timeout
 	CharacterSelect()
-	
 	
 @rpc("any_peer", "call_local")
 func update_seed(value):
