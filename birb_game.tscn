@@ -1,10 +1,11 @@
-[gd_scene load_steps=69 format=3 uid="uid://dy66ry27ahr7y"]
+[gd_scene load_steps=70 format=3 uid="uid://dy66ry27ahr7y"]
 
 [ext_resource type="Script" path="res://birb_game.gd" id="1_keg2c"]
 [ext_resource type="PackedScene" uid="uid://b4r38yoo8qb3m" path="res://Characters/pipe_scene.tscn" id="2_k7ot3"]
 [ext_resource type="PackedScene" uid="uid://cnn8goxcinm6c" path="res://Characters/player.tscn" id="3_p6pnd"]
 [ext_resource type="Texture2D" uid="uid://dxw7m1ldyarih" path="res://Bg/forest-1.png" id="3_v8t2n"]
 [ext_resource type="Texture2D" uid="uid://bt3ik3502bmug" path="res://Characters/370306426_344491368212812_5268343220649006027_n.png" id="5_mxc3e"]
+[ext_resource type="FontFile" uid="uid://6ssxuept72e1" path="res://Fonts/REDENSEK.TTF" id="6_uqx4g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_510li"]
 texture = ExtResource("3_v8t2n")
@@ -455,6 +456,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_510li")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.6
+
+[node name="Score" type="Label" parent="."]
+offset_left = 930.0
+offset_top = 37.0
+offset_right = 1091.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("6_uqx4g")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(968.5, 1096)

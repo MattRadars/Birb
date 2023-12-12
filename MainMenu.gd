@@ -31,7 +31,7 @@ func _input(event):
 		await get_tree().create_timer(0.9).timeout 
 		$HelpScreen.visible = false
 
-func _on_help_btn_pressed(event):
+func _on_help_btn_pressed():
 	$Button_sound.play()
 	if $HelpScreen.visible == false:
 		$HelpAnimation.play("Upwards")

@@ -16,12 +16,12 @@ func _ready():
 	
 	
 func _process(_delta):
-	#var start_button = get_node("Select Player")
-	#var start_effect = get_node("Start Effect")
-	#start_effect.visible = false
-	#if GameManager.Players:
-		#$Label.text = str(player_id)
-	$Announcement.text = GameManager.ready_text
+	if GameManager.player_count == 0:
+		$Announcement.text = "No friends? T-T"
+		$Start.visible = false
+	else:
+		$Announcement.text = GameManager.ready_text
+		$Start.visible = true
 	for i in GameManager.Players:
 		if GameManager.Players[i].player == 1:
 			$"P1Border/Player Name".text = GameManager.Players[i].name

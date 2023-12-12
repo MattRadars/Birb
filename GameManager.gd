@@ -15,6 +15,7 @@ var ready_to_start
 var winner = ""
 var ip = ""
 var no_host = true
+var score = 0
 
 func _ready():
 	pass

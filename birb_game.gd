@@ -67,6 +67,8 @@ func start_game():
 
 func _process(_delta):
 	count = player_count
+	GameManager.score += 1
+	$Score.text = "Score: " + str(GameManager.score)
 	for i in GameManager.Players:
 		if GameManager.Players[i].dead:
 			count -= 1
