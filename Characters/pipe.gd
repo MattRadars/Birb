@@ -18,10 +18,13 @@ func _ready():
 		match powerup_prob:
 			1:
 				$powerup.powerup = "Phase"
+				$powerup/Sprite2D.texture = load("res://powerups/invisibility-powerup4.png")
 			2:
 				$powerup.powerup = "Shrink"
+				$powerup/Sprite2D.texture = load("res://powerups/size-powerup3.png")
 			3:
 				$powerup.powerup = "Blind"
+				$powerup/Sprite2D.texture = load("res://powerups/blind-power-up.png")
 	
 		
 		

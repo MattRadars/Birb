@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4r38yoo8qb3m"]
+[gd_scene load_steps=9 format=3 uid="uid://b4r38yoo8qb3m"]
 
 [ext_resource type="Script" path="res://Characters/pipe.gd" id="1_tdgay"]
 [ext_resource type="Texture2D" uid="uid://d0wc582tu3e46" path="res://Assets/straight-chonk-log2.png" id="2_8kh16"]
 [ext_resource type="Script" path="res://Characters/powerup.gd" id="3_ve72w"]
-[ext_resource type="Texture2D" uid="uid://dclolnpkqfntx" path="res://Frames/twigged-chonk-log.png" id="4_hlecu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2m1e"]
 radius = 57.7602
@@ -62,12 +61,10 @@ scale = Vector2(2.84675, 1.70879)
 shape = SubResource("RectangleShape2D_leahm")
 
 [node name="powerup" type="Area2D" parent="."]
-visible = false
 script = ExtResource("3_ve72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="powerup"]
 position = Vector2(-6.05437, 17.7312)
-texture = ExtResource("4_hlecu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="powerup"]
 position = Vector2(-3.02718, 27.0633)
