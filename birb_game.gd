@@ -20,6 +20,7 @@ var players = []
 var index
 var collisionlayer = 2
 var player_count
+var potential_winner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,8 +70,10 @@ func _process(_delta):
 	for i in GameManager.Players:
 		if GameManager.Players[i].dead:
 			count -= 1
-			if count == 1:
-				update_global_winner.rpc([GameManager.Players[i].name, GameManager.Players[i].character])
+		else:
+			potential_winner = GameManager.Players[i].id
+	if count == 1:
+		update_global_winner.rpc([GameManager.Players[potential_winner].name, GameManager.Players[potential_winner].character])
 	if count == 0:
 		stop = true
 		await get_tree().create_timer(1).timeout
@@ -78,6 +81,8 @@ func _process(_delta):
 	if !stop:
 		for pipes in num_pipes:
 			pipes.position.x -= SCROLL_SPEED
+			
+		
 	
 
 func _on_timer_timeout():

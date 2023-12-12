@@ -86,6 +86,7 @@ stream = ExtResource("7_nkctj")
 volume_db = 5.0
 
 [node name="StartBTN_temp" type="Button" parent="."]
+visible = false
 offset_left = 836.0
 offset_top = 797.0
 offset_right = 1090.0

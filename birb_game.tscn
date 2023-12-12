@@ -475,4 +475,12 @@ shape = SubResource("RectangleShape2D_vilem")
 [node name="DeathAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wgw0y")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.2422, 27.7532)
+color = Color(0, 0, 0, 0.956863)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

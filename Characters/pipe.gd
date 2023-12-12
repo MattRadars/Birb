@@ -14,14 +14,14 @@ func _ready():
 	if prob <= 50:
 		$powerup.visible = true
 		$powerup/CollisionShape2D.disabled = false
-		var powerup_prob = randi_range(1,3)
+		var powerup_prob = randi_range(1,4)
 		match powerup_prob:
 			1:
-				$powerup.powerup = "phase"
+				$powerup.powerup = "Phase"
 			2:
-				$powerup.powerup = "shrink"
+				$powerup.powerup = "Shrink"
 			3:
-				$powerup.powerup = "flash"
+				$powerup.powerup = "Blind"
 	
 		
 		
