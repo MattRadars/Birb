@@ -16,7 +16,6 @@ func _ready():
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
-	
 	scale = GameManager.scale_factor
 	pass
 	
@@ -24,11 +23,6 @@ func _input(event):
 	if event.is_action_pressed("back_scene"):
 		get_tree().change_scene_to_file("res://MainMenu.tscn")
 
-
-#func _on_enter_username_text_submitted(_new_text):
-	#GameManager.playername = $EnterUsername.text
-	#get_tree().change_scene_to_file("res://CharacterSelection.tscn")
-	
 func _process(_delta):
 	if !GameManager.Players.has(multiplayer.get_unique_id()):
 		$StartBTN_temp.disabled = true
@@ -36,7 +30,15 @@ func _process(_delta):
 	else:
 		$StartBTN_temp.disabled = false
 		$StartBTN_temp.visible = true
-	pass
+	
+#	if GameManager.no_host == true:
+#		$IP.visible = false
+#		$Border2.visible = false
+#		$JoinBTN.visible = false
+#		$Border.position = Vector2(959,417)
+#		$EnterUsername.position = Vector2(660,360)
+#		GameManager.no_host = false
+#	pass
 
 func _on_host_btn_pressed():
 	peer = ENetMultiplayerPeer.new()
@@ -48,7 +50,6 @@ func _on_host_btn_pressed():
 	peer.get_host().compress(ENetConnection.COMPRESS_RANGE_CODER)
 	var seed = randi_range(1, 69420)
 	GameManager.randomized = seed
-	
 	multiplayer.set_multiplayer_peer(peer)
 	CharacterSelect()
 	SendPlayerInformation($EnterUsername.text, multiplayer.get_unique_id())

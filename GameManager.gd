@@ -14,6 +14,7 @@ var ready_text = "0/1 players are ready!"
 var ready_to_start
 var winner = ""
 var ip = ""
+var no_host = true
 
 func _ready():
 	pass

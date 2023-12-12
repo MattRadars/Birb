@@ -124,7 +124,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_m5kqp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xdv1c")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_7sqjw")
-placeholder_text = "Enter HOST IP"
+placeholder_text = "Enter HOST IP...."
 
 [node name="Border" type="Sprite2D" parent="."]
 position = Vector2(959, 235)
