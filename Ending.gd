@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	scale = GameManager.scale_factor
 	$Name.text = GameManager.winner[0]
 	match GameManager.winner[1]:
 		"C4":

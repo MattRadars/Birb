@@ -353,6 +353,7 @@ func _on_select_player_pressed():
 @rpc("any_peer", "call_local")
 func game_start():
 	get_tree().change_scene_to_file("res://birb_game.tscn")
+	$CharacterSelectMusic.stop()
 	self.hide()
 
 func _input(event):

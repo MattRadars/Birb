@@ -73,6 +73,7 @@ texture = ExtResource("4_hlecu")
 position = Vector2(-3.02718, 27.0633)
 scale = Vector2(3.72026, 3.57797)
 shape = SubResource("CircleShape2D_vau1j")
+disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="powerup" to="powerup" method="_on_area_entered"]

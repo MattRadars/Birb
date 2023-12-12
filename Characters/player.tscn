@@ -567,7 +567,7 @@ replication_config = SubResource("SceneReplicationConfig_7sxdc")
 position = Vector2(9.99236, -13.0059)
 scale = Vector2(3.25114, 2.80049)
 sprite_frames = SubResource("SpriteFrames_8g321")
-frame_progress = 0.695615
+frame_progress = 0.953361
 
 [node name="FlapFlap" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_umbo3")
@@ -575,8 +575,6 @@ stream = ExtResource("15_umbo3")
 [node name="Boom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_juplr")
 volume_db = 10.0
-
-[node name="PhaseTimer" type="Timer" parent="."]
 
 [node name="ActivePowerup" type="Label" parent="."]
 offset_left = -40.0452
@@ -586,4 +584,15 @@ offset_bottom = -53.9765
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="PhaseTimer" to="." method="_on_phase_timer_timeout"]
+[node name="P1Timer" type="Timer" parent="."]
+
+[node name="P2Timer" type="Timer" parent="."]
+
+[node name="P3Timer" type="Timer" parent="."]
+
+[node name="P4Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="P1Timer" to="." method="_on_p_1_timer_timeout"]
+[connection signal="timeout" from="P2Timer" to="." method="_on_p_2_timer_timeout"]
+[connection signal="timeout" from="P3Timer" to="." method="_on_p_3_timer_timeout"]
+[connection signal="timeout" from="P4Timer" to="." method="_on_p_4_timer_timeout"]
