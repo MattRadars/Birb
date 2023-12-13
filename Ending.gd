@@ -21,33 +21,13 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("exit"):
-		disconnection.rpc()
-		var multiplayer_peers = get_tree().get_multiplayer()
-		for i in multiplayer_peers.get_peers():
-			if multiplayer.get_unique_id() != i:
-				multiplayer.disconnect_peer(i)
-		print(multiplayer_peers.get_peers())
+		get_tree().change_scene_to_file("res://MainMenu.tscn")
 	if event.is_action_pressed("play_again"):
 		get_tree().change_scene_to_file("res://CharacterSelection.tscn")
+		
 		
 @rpc("any_peer", "call_local")
 func update_status(id):
 	GameManager.Players[id].dead = false
 	GameManager.Players[id].ready = false
-
-@rpc("any_peer", "call_local")
-func disconnection():
-	get_tree().change_scene_to_file("res://Lobby.tscn")
-	get_tree().root.get_node("/root/CharacterSelect").queue_free()
-	var multiplayer_peers = get_tree().get_multiplayer()
-	for i in multiplayer_peers.get_peers():
-		if multiplayer.get_unique_id() != i:
-			multiplayer.disconnect_peer(i)
-	GameManager.Players.clear()
-	if multiplayer.get_unique_id() == 1:
-		multiplayer.multiplayer_peer.close()
-	
-@rpc("any_peer", "call_local")
-func self_disconnect(id):
-	GameManager.Players.erase(id)
 
