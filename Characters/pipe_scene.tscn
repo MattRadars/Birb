@@ -61,14 +61,13 @@ scale = Vector2(2.84675, 1.70879)
 shape = SubResource("RectangleShape2D_leahm")
 
 [node name="powerup" type="Area2D" parent="."]
-position = Vector2(-3.027, 0)
 script = ExtResource("3_ve72w")
 
 [node name="Sprite2D" type="Sprite2D" parent="powerup"]
-position = Vector2(-6.054, 0)
+position = Vector2(-6.05437, 17.7312)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="powerup"]
-position = Vector2(0.757, 0)
+position = Vector2(-3.02718, 27.0633)
 scale = Vector2(3.72026, 3.57797)
 shape = SubResource("CircleShape2D_vau1j")
 disabled = true
