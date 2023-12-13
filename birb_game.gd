@@ -11,7 +11,7 @@ var scroll
 const SCROLL_SPEED : int = 5
 var screen_size : Vector2i
 var num_pipes : Array
-const PIPE_DELAY : int = 1.5
+const PIPE_DELAY : int = 4
 const PIPE_RANGE : int = 200
 const PIPE_LIMIT : int = 10
 var player_id
@@ -102,7 +102,7 @@ func generate_pipes():
 	else:
 		pipes.collision_mask = player_count + 2
 	pipes.position.x = get_window().size.x * PIPE_DELAY
-	pipes.position.y = 500 - randi_range(-200, 200)
+	pipes.position.y = get_window().size.y - (randi_range(-300, 300) * GameManager.scale_factor.y)
 	add_child(pipes)
 	num_pipes.append(pipes)
 
